@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div id="main">
+        <el-row>
+            <h1>總挖礦值{{ miningPoint }}</h1>
+            <h1>技能點{{ skillTotal }}</h1>
+            <el-button type="success" @click="clickOnce">挖一次</el-button>
+        </el-row>
+        <el-row>
+            <skill-box
+                v-for="item in skillList"
+                :key="item.index"
+                :skillclass="item.skillClass"
+                :skillname="item.skillName"
+                :skillpoint="item.skillPoint"
+                @update="skillUpdate"
+            ></skill-box>
+        </el-row>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <script src="./main.js"></script>
+</body>
+</html>
